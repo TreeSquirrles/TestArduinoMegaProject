@@ -1,0 +1,46 @@
+#This is for the Arduino Nano Every
+CompileFlags:
+  Add:
+    # --- CORE INCLUDES ---
+    # Pointing to your manual install in /opt
+    - "-I/opt/arduino-1.8.10/hardware/arduino/avr/cores/arduino"
+    - "-I/opt/arduino-1.8.10/hardware/arduino/avr/cores/arduino/Arduino.h"
+    - "-I/opt/arduino-1.8.10/hardware/arduino/avr/variants/eightanaloginputs"
+
+    # --- TOOLCHAIN INCLUDES ---
+    # The /opt install usually bundles its own tools. 
+    # NOTE: If this specific path structure doesn't exist, check inside /opt/arduino-1.8.10/hardware/tools/avr/...
+    
+    #  check out this if you get something that resembles can't find pins_arduino.h
+    #  https://emalliab.wordpress.com/2021/12/16/arduino-nano-every-serial-ports/ 
+    
+    - "-I/opt/arduino-1.8.10/hardware/tools/avr/avr/include"
+    - "-I/opt/arduino-1.8.10/hardware/tools/avr/lib/gcc/avr/7.3.0/include"
+
+    # --- BUILT-IN LIBRARIES ---
+    - "-I/opt/arduino-1.8.10/hardware/arduino/avr/libraries/Wire/src"
+    - "-I/opt/arduino-1.8.10/hardware/arduino/avr/libraries/SPI/src"
+    - "-I/opt/arduino-1.8.10/hardware/arduino/avr/libraries/EEPROM/src"
+    - "-I/opt/arduino-1.8.10/hardware/arduino/avr/libraries/SoftwareSerial/src"
+
+    # --- CUSTOM LIBRARIES ---
+    # (Keep your existing path to your sketchbook libraries)
+    - "-I/home/softdev/Arduino/libraries/Adafruit_PN532"
+    - "-I/home/softdev/Arduino/libraries/Adafruit_BusIO"
+    - "-I/home/softdev/Arduino/libraries/WiFiNINA/src"
+    - "-I/home/softdev/Arduino/libraries/Keypad/src"
+    - "-I/home/softdev/Arduino/libraries/hd44780"
+    - "-I/home/softdev/Arduino/libraries/LiquidCrystal_I2C"
+    - "-I/home/softdev/Arduino/libraries/Adafruit_PWM_Servo_Driver_Library"
+    - "-I/home/softdev/Arduino/libraries/hd44780/"
+
+    # --- DEFINES FOR NANO (ATmega328P) ---
+    - "-DARDUINO=10810"         # Version 1.8.10
+    - "-DARDUINO_AVR_NANO"
+    - "-D__AVR_ATmega328P__"
+    - "-DF_CPU=16000000L"
+    - "-D__AVR__"
+
+  Remove:
+    - "-m*"
+    - "-f*"

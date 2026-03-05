@@ -1,0 +1,37 @@
+# This is for the Arduino Mega 2560
+CompileFlags:
+  Add:
+    # --- CORE INCLUDES ---
+    - "-I/opt/arduino-1.8.10/hardware/arduino/avr/cores/arduino"
+    # The Mega uses the 'mega' variant folder for pins_arduino.h
+    - "-I/opt/arduino-1.8.10/hardware/arduino/avr/variants/mega"
+
+    # --- TOOLCHAIN INCLUDES ---
+    - "-I/opt/arduino-1.8.10/hardware/tools/avr/avr/include"
+    - "-I/opt/arduino-1.8.10/hardware/tools/avr/lib/gcc/avr/7.3.0/include"
+
+    # --- BUILT-IN LIBRARIES ---
+    - "-I/opt/arduino-1.8.10/hardware/arduino/avr/libraries/Wire/src"
+    - "-I/opt/arduino-1.8.10/hardware/arduino/avr/libraries/SPI/src"
+    - "-I/opt/arduino-1.8.10/hardware/arduino/avr/libraries/EEPROM/src"
+    - "-I/opt/arduino-1.8.10/hardware/arduino/avr/libraries/SoftwareSerial/src"
+
+    # --- CUSTOM LIBRARIES ---
+    - "-I/home/softdev/Arduino/libraries/Adafruit_PN532"
+    - "-I/home/softdev/Arduino/libraries/Adafruit_BusIO"
+    - "-I/home/softdev/Arduino/libraries/WiFiNINA/src"
+    - "-I/home/softdev/Arduino/libraries/Keypad/src"
+    - "-I/home/softdev/Arduino/libraries/hd44780"
+    - "-I/home/softdev/Arduino/libraries/LiquidCrystal_I2C"
+    - "-I/home/softdev/Arduino/libraries/Adafruit_PWM_Servo_Driver_Library"
+
+    # --- DEFINES FOR MEGA 2560 ---
+    - "-DARDUINO=10810"
+    - "-DARDUINO_AVR_MEGA2560"   # Specific board define
+    - "-D__AVR_ATmega2560__"     # The Mega chip
+    - "-DF_CPU=16000000L"        # Still 16MHz
+    - "-D__AVR__"
+
+  Remove:
+    - "-m*"
+    - "-f*"
