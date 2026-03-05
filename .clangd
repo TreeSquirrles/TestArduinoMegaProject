@@ -27,9 +27,9 @@ CompileFlags:
 
     # --- DEFINES FOR MEGA 2560 ---
     - "-DARDUINO=10810"
-    - "-DARDUINO_AVR_MEGA2560"   # Specific board define
-    - "-D__AVR_ATmega2560__"     # The Mega chip
-    - "-DF_CPU=16000000L"        # Still 16MHz
+    - "-DARDUINO_AVR_MEGA2560"   
+    - "-D__AVR_ATmega2560__"    
+    - "-DF_CPU=16000000L"        # 16Mz
     - "-D__AVR__"
 
   Remove:
